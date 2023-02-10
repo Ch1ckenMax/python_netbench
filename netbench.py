@@ -192,6 +192,7 @@ def testOneSender(tcpSocketObject: socket):
                 sys.exit()
             bytesSent += 10000
         print("*", end=" ") #Finished one of the 40 loops, show progress in stdout
+        sys.stdout.flush() #Force the * to be written in stdout
     print("") #Add a newline after the progress bar
     print("Sent total: "+ str(bytesSent) + " bytes")
 
@@ -295,6 +296,7 @@ def testThreeReceiver(udpSocketObject: socket, address: (str, int)):
         udpSocketObject.sendto(receivedBytes[0], address) #pong!
 
         print('*', end=" ") #print one * for each successful PONG
+        sys.stdout.flush() #Force the * to be written in stdout
     print("") #newline after printing the whole progress bar
 
 
